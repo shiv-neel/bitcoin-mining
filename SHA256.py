@@ -1,7 +1,6 @@
 from hashlib import sha256
 from datetime import date, datetime
-
-text = '00000'
+import random
 
 def hash(string):
     return sha256(string.encode('ascii')).hexdigest()
@@ -24,5 +23,6 @@ if __name__ == '__main__':
     Kanye_West->Kendrick_Lamar->45
     '''
     difficulty = 20
-    new_hash = mine(5, transactions, '348d77e943a990e64b08bd3bafc7c1b3fde497e92670f78cd8e9eb27529706f2', difficulty)
+    block_number = random.randint(500000)
+    new_hash = mine(block_number, transactions, '348d77e943a990e64b08bd3bafc7c1b3fde497e92670f78cd8e9eb27529706f2', difficulty) # randomized prev hash
     print(new_hash)
